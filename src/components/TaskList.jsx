@@ -2,7 +2,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { DeleteIcon } from '@chakra-ui/icons'
 import { Button } from '@chakra-ui/react'
 import { deleteTask } from '../features/tasks/taskSlice'
-
+import { Link } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 
 const TaskList = () => {
 
@@ -17,6 +18,16 @@ const TaskList = () => {
 
   return (
     <div>
+      <header>
+        <Text
+          bgGradient='linear(to-l, #7928CA, #FF0080)'
+          bgClip='text'
+          fontSize='5xl'
+          fontWeight='extrabold'
+        >Task {tasks.length} </Text>
+        <Link href='/create-task' color='teal.500'>Crear Tarea</Link>
+      </header>
+      
       {
         tasks.map(task => (
           <div key={task.id}>
