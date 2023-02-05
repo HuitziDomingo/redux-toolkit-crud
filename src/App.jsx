@@ -21,8 +21,9 @@ const App = () => {
       </header>
       <BrowserRouter>
         <Routes>
-          <Route path='/create-task' element={<TaskForm />} />
           <Route path='/' element={<TaskList />} />
+          <Route path='/create-task' element={<TaskForm />} />
+          <Route path='/edit-task/:id' element={<TaskForm />} />
         </Routes>
       </BrowserRouter>
     </>
