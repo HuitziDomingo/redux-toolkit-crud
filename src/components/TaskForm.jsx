@@ -11,11 +11,12 @@ const TaskForm = () => {
     title: '',
     description: '',
   })
-
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const params = useParams()
   const tasks = useSelector(state => state.tasks)
+  const taskMapped = tasks.map(task => task.id)
 
   const handleChange = e => {
     setTask({
@@ -36,11 +37,10 @@ const TaskForm = () => {
 
   useEffect(() => {
     // console.log(params.id)
-    if (params.id){
-      let taskMapped = tasks.map(task => task.id)
+    if (params.id) {
       setTask(taskMapped.find(taskM => taskM.id === params.id))
     }
-    
+
 
   }, [params, tasks])
 
@@ -52,14 +52,14 @@ const TaskForm = () => {
           type="text"
           placeholder="title"
           onChange={handleChange}
-        // value={task.title}
+          value={taskMapped.title}
         />
 
         <textarea
           name="description"
           placeholder="descripcion"
           onChange={handleChange}
-        // value={task.description}
+          value={taskMapped.description}
         >
         </textarea>
 
