@@ -11,7 +11,7 @@ const TaskForm = () => {
     title: '',
     description: '',
   })
-  
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const params = useParams()
@@ -46,25 +46,33 @@ const TaskForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+        className="grid place-content-center gap-3 p-10"
+        onSubmit={handleSubmit}
+      >
         <input
+          className="text-black block text-xl rounded p-2"
           name="title"
           type="text"
-          placeholder="title"
+          placeholder="Titulo..."
           onChange={handleChange}
           value={taskMapped.title}
         />
 
         <textarea
+          className="text-black block text-xl rounded p-2"
           name="description"
-          placeholder="descripcion"
+          placeholder="Descripcion..."
           onChange={handleChange}
           value={taskMapped.description}
         >
         </textarea>
 
-        <button>Guardar</button>
+        <button
+          className="block bg-slate-700 rounded-lg p-1"
+        >Guardar</button>
       </form>
+
     </>
   )
 }
