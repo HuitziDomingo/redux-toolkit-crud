@@ -7,10 +7,11 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    useDisclosure, 
-    Button, 
-    Input
+    useDisclosure,
+    Button,
 } from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
+
 
 const Nav = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -18,28 +19,25 @@ const Nav = () => {
     return (
         <>
             <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-                Menu
+                <HamburgerIcon />
             </Button>
             <Drawer
                 isOpen={isOpen}
-                placement='right'
+                placement='bottom'
                 onClose={onClose}
                 finalFocusRef={btnRef}
             >
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Create your account</DrawerHeader>
+                    <DrawerHeader>Menu de la App </DrawerHeader>
 
                     <DrawerBody>
-                        <Input placeholder='Type here...' />
+
                     </DrawerBody>
 
                     <DrawerFooter>
-                        <Button variant='outline' mr={3} onClick={onClose}>
-                            Cancel
-                        </Button>
-                        <Button colorScheme='blue'>Save</Button>
+
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

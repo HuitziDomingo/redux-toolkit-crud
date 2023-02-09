@@ -3,12 +3,13 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import { Button, Text } from '@chakra-ui/react'
 import { deleteTask } from '../features/tasks/taskSlice'
 import { Link } from 'react-router-dom'
+import Login from './Login'
+import Footer from './Footer'
 
 
 const TaskList = () => {
 
   const tasks = useSelector(state => state.tasks)
-
   const dispatch = useDispatch()
 
   const handleDelete = id => {
@@ -19,7 +20,7 @@ const TaskList = () => {
   return (
     <div className='text-center w-full '>
 
-    
+    <Login/>
 
       <Text
         bgGradient='linear(to-l, #7928CA, #FF0080)'
@@ -41,7 +42,7 @@ const TaskList = () => {
             key={task.id}
              className="
              bg-sky-700 my-10 w-96 rounded-lg py-10 shadow-2xl
-             bg-gradient-to-r from-red-900 to-black
+             bg-gradient-to-r from-red-900 via-purple-900
              "
              >
               <h3 className='text-xl'>{task.title}</h3>
@@ -60,6 +61,7 @@ const TaskList = () => {
           ))
         }
       </div>
+      <Footer/>
     </div>
   )
 }

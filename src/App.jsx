@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <div
-      className="bg-gradient-to-l from-red-900 via-purple-900 to-black h-screen text-white"
+      className="bg-zinc-800 h-screen text-white"
     >
       <div className="">
         <header className='text-center'>
