@@ -8,9 +8,9 @@ const Login = () => {
     const user = useSelector(state => state.auth.user)
 
     console.log(user)
-    
-    const handleClick = () => {
-        const user = {
+
+    const handleLogin = () => {
+        let user = {
             name: 'Huitzitzili',
             username: 'Leon',
             email: 'leon@hotmail.com'
@@ -18,10 +18,15 @@ const Login = () => {
         dispatch(setUser(user))
     }
 
+    const handleLogout = () => {
+        dispatch(setUser(false))
+    }
 
     return (
         <div>
-            <button onClick={handleClick}>Log in</button>
+            {!user && (<button onClick={handleLogin}>Log in</button>)}
+            {user && (<button onClick={handleLogout}>Log out</button>)}
+
         </div>
     )
 }
